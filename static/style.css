@@ -1998,3 +1998,28 @@ form textarea:focus {
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
+
+
+/* Search */
+
+
+/* HeroSearch private styles */
+
+form.search>label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+
+form.search>input {
+    padding: .5rem;
+    width: 50%;
+    box-sizing: border-box;
+    display: block;
+}
+
+form.search>input:focus {
+    outline: #336699 auto 1px;
+}

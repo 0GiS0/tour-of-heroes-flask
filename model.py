@@ -17,6 +17,11 @@ def get_hero(id):
             return hero
     return None
 
+def get_hero_by_name(query):
+    for hero in db:
+        if hero['name'].lower() == query.lower():
+            return hero
+    return None
 
 def remove_hero(id):
     index = 0
@@ -26,6 +31,5 @@ def remove_hero(id):
             save_db(db)
             return hero
         index = index + 1
-
 
 db = load_db()

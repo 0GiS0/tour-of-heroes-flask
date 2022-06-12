@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %} {% block content %}
 
+
 <h2>Top Heroes</h2>
 
 <div class="heroes-menu">
@@ -8,5 +9,10 @@
     <a href="{{ url_for('hero_detail', id=hero.id) }}">{{ hero.name }}</a> {% endfor %}
 
 </div>
+<form action="{{ url_for('search') }}" class="search">
+    <label>Hero Search</label>
+    <input type="text" name="query" placeholder="Search">
+    <input type="submit" value="Search">
+</form>
 
 {% endblock %}
