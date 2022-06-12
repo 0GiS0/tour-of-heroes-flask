@@ -19,7 +19,7 @@
                         <h2>{{hero.name}}</h2>
                     </header>
                     <p>{{hero.description[0:150]}}...</p>
-                    <a href="{{ url_for('delete_hero',id=hero.id) }}"> Delete</a>
+                    <a class="button" href="{{ url_for('delete_hero',id=hero.id) }}"> Delete</a>
                 </div>
             </section>
         </div>

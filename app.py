@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from model import db, get_hero
+from model import db, get_hero, remove_hero
 
 app = Flask(__name__)
 
@@ -23,5 +23,5 @@ def hero_detail(id):
 
 @app.route('/delete/<int:id>')
 def delete_hero(id):
-    del db[id]
+    remove_hero(id)
     return render_template('heroes.html', heroes=db[1:10])

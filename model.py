@@ -18,4 +18,14 @@ def get_hero(id):
     return None
 
 
+def remove_hero(id):
+    index = 0
+    for hero in db:
+        if hero['id'] == id:
+            del db[index]
+            save_db(db)
+            return hero
+        index = index + 1
+
+
 db = load_db()
