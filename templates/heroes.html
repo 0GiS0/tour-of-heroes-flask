@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content %}
+
+<h2>My heroes</h2>
+
+<div>
+    <label for="new_hero">Hero name:</label>
+    <input id="new_hero" />
+
+    <button class="add-button">Add hero</button>
+</div>
+<div class="container">
+    <div class="row">
+        {% for hero in heroes %}
+        <div class="col-4 col-12-medium">
+            <section class="box feature">
+                <a href="{{ url_for('hero_detail', id=hero.id) }}" class="image featured"><img src="{{ url_for('static',filename='heroes/' + hero.name.lower().replace(' ','-') + '.jpeg') }}" /></a>
+                <div class="inner">
+                    <header>
+                        <h2>{{hero.name}}</h2>
+                    </header>
+                    <p>{{hero.description[0:150]}}...</p>
+                    <a href="{{ url_for('delete_hero',id=hero.id) }}"> Delete</a>
+                </div>
+            </section>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+{% endblock %}

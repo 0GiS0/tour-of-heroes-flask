@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content %}
+
+<h2>Top Heroes</h2>
+
+<div class="heroes-menu">
+
+    {% for hero in heroes %}
+    <a href="{{ url_for('hero_detail', id=hero.id) }}">{{ hero.name }}</a> {% endfor %}
+
+</div>
+
+{% endblock %}
