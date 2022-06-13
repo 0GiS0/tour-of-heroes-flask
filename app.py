@@ -1,5 +1,6 @@
+from crypt import methods
 from flask import Flask, render_template,request,abort
-from model import db, get_hero, remove_hero,get_hero_by_name
+from model import db, get_hero, remove_hero,get_hero_by_name,addHero
 
 app = Flask(__name__)
 
@@ -19,6 +20,12 @@ def heroes():
 def hero_detail(id):
     hero = get_hero(id)
     return render_template('detail.html', hero=hero)
+
+@app.route('/hero',methods=['POST'])
+def add_hero():
+    name = request.form.get('new_hero')
+    addHero(name)
+    return render_template('heroes.html', heroes=db[1:10])
 
 
 @app.route('/delete/<int:id>')

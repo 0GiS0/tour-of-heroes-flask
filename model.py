@@ -23,6 +23,11 @@ def get_hero_by_name(query):
             return hero
     return None
 
+def addHero(name):
+    hero = {'id': len(db) + 1, 'name': name}
+    db.append(hero)
+    save_db(db)
+
 def remove_hero(id):
     index = 0
     for hero in db:

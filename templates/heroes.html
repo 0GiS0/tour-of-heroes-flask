@@ -3,10 +3,12 @@
 <h2>My heroes</h2>
 
 <div>
-    <label for="new_hero">Hero name:</label>
-    <input id="new_hero" />
+    <form action="{{ url_for('add_hero')}}" method="post">
+        <label for="new_hero">Hero name:</label>
+        <input id="new_hero" />
 
-    <button class="add-button">Add hero</button>
+        <button class="add-button">Add hero</button>
+    </form>
 </div>
 <div class="container">
     <div class="row">
