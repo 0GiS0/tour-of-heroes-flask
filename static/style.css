@@ -1094,10 +1094,16 @@ button,
     border: 0;
     cursor: pointer;
     font-size: 1em;
-    padding: 0.6em 1.5em;
+    /* padding: 0.6em 1.5em; */
     margin-right: 1rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+}
+
+a.button {
+    font-weight: 500;
+    font-size: .9em;
+    padding: 1.3em;
 }
 
 input[type="button"]:disabled,
@@ -1204,7 +1210,7 @@ button:disabled {
         width: 100%;
         text-align: center;
         font-size: 1.35em;
-        padding: 0.85em 0 !important;
+        /* padding: 0.85em 0 !important; */
     }
     input[type="button"].icon,
     input[type="submit"].icon,
@@ -1444,8 +1450,8 @@ button:disabled {
     .button {
         width: 100%;
         text-align: center;
-        font-size: 1.25em !important;
-        padding: 0.65em 0 !important;
+        /* font-size: 1.25em !important; */
+        /* padding: 0.65em 0 !important; */
     }
     input[type="button"].icon,
     input[type="submit"].icon,
@@ -1953,11 +1959,12 @@ form label span {
 form button,
 input[type="file"] {
     transition: all 0.2s ease-in-out;
-    font: 18px Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     border: none;
     background: #1aaf75;
     color: #fff;
-    padding: 16px 40px;
+    font-weight: 500;
+    padding: 1.1em 2.5em;
 }
 
 form button:hover {

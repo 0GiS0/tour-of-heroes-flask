@@ -1,7 +1,5 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %} {% block content %}
 
-<h2>My heroes</h2>
-
 <div>
     <form action="{{ url_for('add_hero')}}" method="post">
         <label for="new_hero">Hero name:</label>
@@ -10,6 +8,7 @@
         <button class="add-button">Add hero</button>
     </form>
 </div>
+<h2>My heroes</h2>
 <div class="container">
     <div class="row">
         {% for hero in heroes %}
