@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, redirect,url_for
 from model import HeroService
 
 app = Flask(__name__)
@@ -24,7 +24,7 @@ def hero_detail(id):
 def add_hero():
     name = request.form.get('new_hero')
     heroService.addHero(name)
-    return render_template('heroes.html', heroes=heroService.get_all_heroes(), messages=heroService.messages)
+    return redirect(url_for('heroes'))
 
 
 @app.route('/hero/<int:id>', methods=['POST'])
@@ -35,13 +35,13 @@ def update_hero(id):
     hero['description'] = request.form.get('description')
 
     heroService.updateHero(hero)
-    return render_template('heroes.html',  heroes=heroService.get_all_heroes(), messages=heroService.messages)
+    return redirect(url_for('heroes'))
 
 
 @app.route('/delete/<int:id>')
 def delete_hero(id):
     heroService.remove_hero(id)
-    return render_template('heroes.html', heroes=heroService.get_all_heroes(), messages=heroService.messages)
+    return redirect(url_for('heroes'))
 
 
 @app.route('/search')
@@ -52,7 +52,8 @@ def search():
     else:
         abort(404)
 
+
 @app.route('/clear_messages')
 def clear_messages():
     heroService.messages.clear()
-    return render_template('heroes.html', heroes=heroService.get_all_heroes(), messages=heroService.messages)
+    return redirect(url_for('heroes'))
