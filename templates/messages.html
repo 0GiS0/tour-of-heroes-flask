@@ -1,7 +1,7 @@
 {% if messages %}
 <div>
     <h2 class="title messages">Messages</h2>
-    <button class="clear" (click)="messageService.clear()">Clear messages</button> {% for message in messages %}
+    <a class="button clear" href="{{ url_for('clear_messages') }}">Clear messages</a> {% for message in messages %}
     <div>{{message}}</div>
     {% endfor %}
 </div>
