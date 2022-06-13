@@ -24,7 +24,7 @@ def get_hero_by_name(query):
     return None
 
 def addHero(name):
-    hero = {'id': len(db) + 1, 'name': name}
+    hero = {'id': len(db) + 1, 'name': name, 'description': '', 'alterEgo': ''}
     db.append(hero)
     save_db(db)
 
