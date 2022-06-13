@@ -6,7 +6,9 @@ class HeroService:
         self.db = load_db()
         self.messages = []
 
-    def get_all_heroes(self):
+    def get_all_heroes(self,count=None):
+        if count:
+            return self.db[:count]
         return self.db[1:10]
 
     def get_hero(self, id):

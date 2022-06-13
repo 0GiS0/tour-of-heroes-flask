@@ -7,7 +7,7 @@ heroService = HeroService()
 
 @app.route('/')
 def index():
-    return render_template('index.html', heroes=heroService.get_all_heroes(), messages=heroService.messages)
+    return render_template('index.html', heroes=heroService.get_all_heroes(4), messages=heroService.messages)
 
 
 @app.route('/heroes')
