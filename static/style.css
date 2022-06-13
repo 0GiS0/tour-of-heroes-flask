@@ -1038,6 +1038,8 @@ nav a {
     background-color: #e8e8e8;
     color: #3d3d3d;
     border-radius: 4px;
+    width: auto;
+    font-size: 1rem;
 }
 
 nav a:hover {
@@ -2020,6 +2022,35 @@ form.search>input {
     display: block;
 }
 
+form.search>input[type="submit"] {
+    padding: .5rem;
+    width: 10%;
+    box-sizing: border-box;
+    display: block;
+}
+
 form.search>input:focus {
     outline: #336699 auto 1px;
+}
+
+h2.title.messages {
+    text-align: left;
+    color: #a80000;
+}
+
+
+/* Search box */
+
+#search {
+    width: 50%;
+    display: table;
+}
+
+#search>div.t {
+    display: table-cell;
+    width: 100%;
+}
+
+#search>div.t>input {
+    width: 100%;
 }

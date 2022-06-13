@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     heroes = db[1:5]
-    return render_template('index.html', heroes=heroes)
+    return render_template('index.html', heroes=heroes, messages=["HeroService: fetched heroes"])
 
 
 @app.route('/heroes')

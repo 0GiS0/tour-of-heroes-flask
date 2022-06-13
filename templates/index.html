@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %} {% block content %}
 
 
-<h2>Top Heroes</h2>
+<h2 class="title">Top Heroes</h2>
 
 <div class="heroes-menu">
 
@@ -11,8 +11,11 @@
 </div>
 <form action="{{ url_for('search') }}" class="search">
     <label>Hero Search</label>
-    <input type="text" name="query" placeholder="Search">
-    <input type="submit" value="Search">
+    <div id="search">
+        <div class="t">
+            <input type="text" name="query" placeholder="Search">
+        </div>
+        <input type="submit" value="Search">
+    </div>
 </form>
-
-{% endblock %}
+{% include "messages.html" %} {% endblock %}

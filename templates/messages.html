@@ -1,0 +1,8 @@
+{% if messages %}
+<div>
+    <h2 class="title messages">Messages</h2>
+    <button class="clear" (click)="messageService.clear()">Clear messages</button> {% for message in messages %}
+    <div>{{message}}</div>
+    {% endfor %}
+</div>
+{% endif %}
