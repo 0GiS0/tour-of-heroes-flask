@@ -28,6 +28,16 @@ def addHero(name):
     db.append(hero)
     save_db(db)
 
+def updateHero(hero):
+    index = 0
+    for h in db:
+        if h['id'] == hero['id']:
+            db[index] = hero
+            save_db(db)
+            return hero
+        index = index + 1
+    return None
+
 def remove_hero(id):
     index = 0
     for hero in db:

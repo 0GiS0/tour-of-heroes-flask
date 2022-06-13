@@ -10,30 +10,28 @@
                 </section>
             </div>
             <div class="col-7">
-                <form>
+                <form action="{{ url_for('update_hero', id=hero.id) }}" method="post">
                     <div class="form-group">
-                        <label for="hero-name">
-                            <input id="hero-name" value="{{hero.name}}"
-                                placeholder="Name">
+                        <label for="hero_name">
+                            <input id="hero_name" name="hero_name" value="{{hero.name}}" placeholder="Name">
                             <span>Hero name</span>
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="hero-name">
-                            <input id="hero-name" value="{{hero.alterEgo}}"
-                                placeholder="Alter ego">
+                        <label for="alterEgo">
+                            <input id="alterEgo" name="alterEgo" value="{{hero.alterEgo}}" placeholder="Alter ego">
                             <span>Alter ego</span>
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="hero-name">
-                            <textarea id="hero-description" placeholder="Description">{{hero.description}}</textarea>
+                        <label for="description">
+                            <textarea id="description" name="description" placeholder="Description">{{hero.description}}</textarea>
                             <span>Description</span>
                         </label>
                     </div>
                     <div class="buttons">
-                        <button (click)="save()">Save</button>
-                        <button (click)="goBack()">Go back</button>
+                        <button type="submit">Save</button>
+                        <a class="button" href="{{ url_for('heroes') }}">Go back</button>
                     </div>
                 </form>
             </div>
