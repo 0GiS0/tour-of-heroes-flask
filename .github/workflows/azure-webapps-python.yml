@@ -62,7 +62,24 @@ jobs:
           path: |
             . 
             !venv/
-
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login GitHub Packages
+        uses: docker/login-action@v1
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Short the sha to 7 characters only
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_SHA::7})
+      - uses: docker/build-push-action@v2
+        with:         
+          context: .         
+          push: true
+          tags: docker.pkg.github.com/0gis0/tour-of-heroes-flask/tour-of-heroes-flask:${{ steps.vars.outputs.tag }}
   deploy:
     permissions:
       contents: none
