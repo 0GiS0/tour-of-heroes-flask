@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-ENV FLASK_ENV=development
+# ENV FLASK_ENV=development
 
 ENV API_URL=http://192.168.0.53:8080/api/hero
 
