@@ -9,9 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-# ENV FLASK_ENV=development
-
-ENV API_URL=http://192.168.0.53:8080/api/hero
+ENV API_URL=https://tour-of-heroes-web-api.azurewebsites.net/api/hero
 
 # Install pip requirements
 COPY requirements.txt .
@@ -26,4 +24,6 @@ RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["gunicorn", "--bind", "0.0.0.0:5002","--log-level=debug", "app:app"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:5002", "app:app"]
+RUN chmod +x gunicorn.sh
+ENTRYPOINT ["./gunicorn.sh"]
