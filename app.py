@@ -55,5 +55,5 @@ def search():
 
 @app.route('/clear_messages')
 def clear_messages():
-    heroService.messages.clear()
+    heroService.messages = []
     return redirect(url_for('heroes'))
