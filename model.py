@@ -1,21 +1,21 @@
-import requests
-import os
+import json
 
 class HeroService:
     def __init__(self):
         self.messages = []
-        # self.apiUrl = 'http://192.168.0.53:8080/api/hero'
-        self.apiUrl = os.environ['API_URL']
+        with open('heroes_db.json') as f:
+            self.db = json.load(f)
 
     def get_all_heroes(self):
-        heroes = requests.get(self.apiUrl)
-        self.messages.append('Heroes loaded from API')
-        return heroes.json()
+        self.messages.append('Heroes loaded from local JSON file')
+        return self.db
 
     def get_hero(self, id):
-        hero = requests.get(f'{self.apiUrl}/{id}')
-        self.messages.append(f'Hero with id {id} found')
-        return hero.json()
+        for hero in self.db:
+            if hero['id'] == id:
+                self.messages.append(f'Hero with id {id} found')
+                return hero
+        return None
 
     def get_hero_by_name(self, query):
         for hero in self.db:
@@ -25,15 +25,17 @@ class HeroService:
         return None
 
     def addHero(self, name):
-        requests.post(self.apiUrl, json={"name": name, "description": "", "alterEgo": ""})
+        new_hero = {"id": len(self.db) + 1, "name": name, "description": "", "alterEgo": ""}
+        self.db.append(new_hero)
         self.messages.append(f'Hero with name {name} added')
 
     def updateHero(self, hero):
-        id = hero['id']
-        hero = requests.put(f'{self.apiUrl}/{hero["id"]}', json=hero)
-        self.messages.append(f"Hero with id {id} updated")
-       
+        for i, h in enumerate(self.db):
+            if h['id'] == hero['id']:
+                self.db[i] = hero
+                self.messages.append(f"Hero with id {hero['id']} updated")
+                break
 
     def remove_hero(self, id):
-        requests.delete(f'{self.apiUrl}/{id}')
+        self.db = [hero for hero in self.db if hero['id'] != id]
         self.messages.append(f"Hero with id {id} deleted")
