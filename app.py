@@ -10,6 +10,20 @@ def index():
     return render_template('index.html', heroes=heroService.get_all_heroes()[1:5], messages=heroService.messages)
 
 
+@app.route('/search')
+def search():
+    hero = heroService.get_hero_by_name(request.args.get('query'))
+    if hero:
+        return render_template('detail.html', hero=hero, messages=heroService.messages)
+    else:
+        abort(404)
+
+
+@app.route('/clear_messages')
+def clear_messages():
+    heroService.messages = []
+    return redirect(url_for('heroes'))
+
 @app.route('/heroes')
 def heroes():
     return render_template('heroes.html', heroes=heroService.get_all_heroes(), messages=heroService.messages)
@@ -38,22 +52,5 @@ def update_hero(id):
     return redirect(url_for('heroes'))
 
 
-@app.route('/delete/<int:id>')
-def delete_hero(id):
-    heroService.remove_hero(id)
-    return redirect(url_for('heroes'))
 
 
-@app.route('/search')
-def search():
-    hero = heroService.get_hero_by_name(request.args.get('query'))
-    if hero:
-        return render_template('detail.html', hero=hero, messages=heroService.messages)
-    else:
-        abort(404)
-
-
-@app.route('/clear_messages')
-def clear_messages():
-    heroService.messages = []
-    return redirect(url_for('heroes'))

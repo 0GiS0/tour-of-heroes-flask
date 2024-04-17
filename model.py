@@ -36,6 +36,3 @@ class HeroService:
                 self.messages.append(f"Hero with id {hero['id']} updated")
                 break
 
-    def remove_hero(self, id):
-        self.db = [hero for hero in self.db if hero['id'] != id]
-        self.messages.append(f"Hero with id {id} deleted")
