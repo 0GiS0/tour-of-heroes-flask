@@ -24,6 +24,7 @@ def clear_messages():
     heroService.messages = []
     return redirect(url_for('heroes'))
 
+
 @app.route('/heroes')
 def heroes():
     return render_template('heroes.html', heroes=heroService.get_all_heroes(), messages=heroService.messages)
@@ -50,7 +51,3 @@ def update_hero(id):
 
     heroService.updateHero(hero)
     return redirect(url_for('heroes'))
-
-
-
-

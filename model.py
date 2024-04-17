@@ -35,4 +35,3 @@ class HeroService:
                 self.db[i] = hero
                 self.messages.append(f"Hero with id {hero['id']} updated")
                 break
-
