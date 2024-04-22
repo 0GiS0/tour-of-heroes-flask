@@ -17,6 +17,6 @@ metadata:
 spec:
   type: website
   lifecycle: experimental
-  owner: user:0GiS0
+  owner: dc
   system: tour-of-heroes
   dependsOn: ['api:heroes-dotnet-api']  
