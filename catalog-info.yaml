@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: heroes-python-web
+  description: Heroes Python API is RESTFul API that manages heroes
+  tags:
+    - python    
+  links:
+    - url: https://github.com/0GiS0/tour-of-heroes-flask
+      title: Source Code
+      icon: github
+    - url: https://python.heroes.es
+      title: Production
+      icon: globe
+spec:
+  type: website
+  lifecycle: production
+  owner: user:0GiS0
+  system: tour-of-heroes
+  dependsOn: ['api:heroes-dotnet-api']  
