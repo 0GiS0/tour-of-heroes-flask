@@ -16,7 +16,7 @@ metadata:
     github.com/project-slug: 0GiS0/tour-of-heroes-flask
 spec:
   type: website
-  lifecycle: production
+  lifecycle: experimental
   owner: user:0GiS0
   system: tour-of-heroes
   dependsOn: ['api:heroes-dotnet-api']  
